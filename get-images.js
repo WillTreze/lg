@@ -1,3 +1,6 @@
+/**
+ * @version 1.0.0 - October 30, 2023
+ */
 export class GetImages {
 
   async imgur(albumHash, accessToken) {

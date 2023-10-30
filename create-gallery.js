@@ -1,3 +1,7 @@
+/**
+ * @version 1.0.0 - October 30, 2023
+ */
+
 export class CreateGallery {
   static querySelector(selector) {
     return document.querySelector(selector);
