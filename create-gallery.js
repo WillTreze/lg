@@ -60,6 +60,34 @@ export class CreateGallery {
     }, 1100);
   }
 
+  static addGalleryElementContainer() {
+    const code = `
+      <style>
+        .grid-wrapper-item > img {
+          opacity: 0;
+          display: block;
+          max-width: 100%;
+        }
+        .grid-item,
+        .grid-sizer {
+          width: 25%;
+        }
+        .grid-item {
+          float: left;
+          cursor: pointer;
+        }
+      </style>
+
+      <div class="grid-sizer"></div>
+    `
+    const section = document.createElement('section');
+    section.classList.add('grid', 'grid--container')
+    section.setAttribute('id', 'light-gallery');
+
+    section.innerHTML = code;
+    document.body.appendChild(section);
+  }
+
   /**
    * 
    * @param {HTMLElement} targetElement 
@@ -150,9 +178,7 @@ export class CreateGallery {
     let isThereAnError = false;
 
     try {
-      const templateGalleryArea = CreateGallery.querySelector('#js-template-gallery');
-      const clone = document.importNode(templateGalleryArea.content, true);
-      document.body.appendChild(clone);
+      CreateGallery.addGalleryElementContainer();
       
       switch (host) {
         case 'imgur':
